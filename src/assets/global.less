@@ -1,0 +1,55 @@
+@import '@/assets/colors';
+@import '@/assets/settings';
+
+@font-face {
+	font-family: 'Maple Mono CN Medium';
+	src: url('MapleMono-CN.woff2') format('woff2');
+	font-display: swap;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Maple Mono CN Medium', system-ui, sans-serif;
+}
+
+// 背景图像
+.background-image {
+	background: url('@{bg-image}') center no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	[data-theme='dark'] & {
+		background-image: url('@{bg-image-dark}');
+	}
+}
+
+// 模糊
+.blur(@blur: 30px) {
+	backdrop-filter: blur(@blur);
+	-webkit-backdrop-filter: blur(@blur);
+}
+
+// 在Input中内嵌一个元素
+.input-with-element {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+}
+
+.input-with-element input {
+	flex: 1;
+	padding-right: 40px;
+}
+
+.input-with-element .element {
+	position: absolute;
+	right: 5px;
+}

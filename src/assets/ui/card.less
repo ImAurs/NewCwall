@@ -1,0 +1,50 @@
+@import '@/assets/settings';
+
+// 响应式卡片宽度
+.card-width(@base: 18rem) {
+	width: @base;
+
+	@media (min-width: @sm) {
+		width: @base + 2;
+	}
+
+	@media (min-width: @md) {
+		width: @base + 4;
+	}
+
+	@media (min-width: @lg) {
+		width: @base + 6;
+	}
+}
+
+// 玻璃模糊效果
+.glass(@blur: 30px; @padding: 1.5rem; @radius: 1rem) {
+	position: relative;
+	padding: @padding;
+	border-radius: @radius;
+	overflow: hidden;
+
+	backdrop-filter: blur(@blur);
+	-webkit-backdrop-filter: blur(@blur);
+
+	background-color: fade(#ffffff, 28%);
+
+	box-shadow:
+		inset 0 0 0 1px fade(#ffffff, 20%),
+		0 8px 32px fade(#000000, 18%);
+
+	[data-theme='dark'] & {
+		background-color: fade(#000000, 28%);
+
+		box-shadow:
+			inset 0 0 0 1px fade(#ffffff, 8%),
+			0 8px 32px fade(#000000, 40%);
+	}
+}
+
+// 卡片设置
+.card-settings {
+	backdrop-filter: blur(40px) saturate(250%);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	margin: 0 auto;
+}
