@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "alova": "^3.3.4",
+        "dayjs": "^1.11.18",
         "dompurify": "^3.3.0",
         "gsap": "^3.13.0",
         "js-cookie": "^3.0.5",

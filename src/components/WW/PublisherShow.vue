@@ -2,6 +2,9 @@
 import type { WW } from '@/utils/types/ww/WWList.ts'
 import { ref } from 'vue'
 import { FollowCwallUser } from '@/utils/user/follow.ts'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/zh-cn'
 
 interface Props {
     wwInfo: WW
@@ -9,12 +12,16 @@ interface Props {
 withDefaults(defineProps<Props>(), {
     wwInfo: () => ({}) as WW,
 })
-
+dayjs.extend(relativeTime)
+dayjs.locale('zh-cn')
 const showFallback = ref(false)
 
 function onceFallback(e: Event) {
     showFallback.value = true
     ;(e.target as HTMLImageElement).style.display = 'none'
+}
+function getTimeAgo(date: string) {
+    return dayjs(date).fromNow()
 }
 async function followUser(userId: string) {
     const res = await FollowCwallUser(userId)
@@ -41,6 +48,7 @@ async function followUser(userId: string) {
         </div>
 
         <p class="username">{{ wwInfo.username }}</p>
+        <p>{{ getTimeAgo(wwInfo.publish_time) }}</p>
 
         <button @click="(e) => followUser(wwInfo.user_id)">关注</button>
     </div>
