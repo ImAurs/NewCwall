@@ -4,21 +4,23 @@ import NavBar from '@/components/Navbar/NavBar.vue'
 
 <template>
     <div class="layout">
-        <div class="bg" />
         <NavBar />
-        <RouterView />
+        <RouterView class="container" />
     </div>
 </template>
 
-<style scoped>
+<style lang="less">
+@import '@/assets/settings';
+
 .layout {
-    position: relative;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: var(--bg);
+    background-attachment: fixed;
 }
-.bg {
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    z-index: -1;
+
+.container {
+    margin-top: @HeaderHeight;
 }
 </style>

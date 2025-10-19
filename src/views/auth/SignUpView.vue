@@ -13,7 +13,7 @@ const submitForm = () => {}
 </script>
 
 <template>
-    <div class="background">
+    <div class="container">
         <div class="card-container">
             <div class="title-container">
                 <h2 class="title">注册</h2>
@@ -58,14 +58,27 @@ const submitForm = () => {}
 @import '@/assets/global';
 @import '@/assets/ui/card';
 
-.background {
-    .background-image();
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-container {
     .card-width();
-    .glass(30px);
     .card-settings();
+    background: var(--bg-alt);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    position: relative;
+
+    border: 1px solid var(--border);
+
+    [data-theme='dark'] & {
+        border: 1px solid var(--border);
+    }
 }
 
 .title-container {

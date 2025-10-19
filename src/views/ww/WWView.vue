@@ -13,16 +13,5 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="ww-list">
-        <WWCardLists :lists="list.data" />
-    </div>
+    <WWCardLists :lists="list.data" />
 </template>
-
-<style scoped lang="less">
-@import '@/assets/settings';
-
-.ww-list {
-    padding: 0 1.5rem;
-    margin-top: calc(@HeaderHeight + 1rem);
-}
-</style>
